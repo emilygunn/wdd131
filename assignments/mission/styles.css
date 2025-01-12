@@ -1,0 +1,40 @@
+.content {
+    max-width: 600px;
+    padding: 50px;
+    border: 1.5px solid lightgray;
+    margin: 0 auto;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 20px;
+    line-height: 1.5;
+}
+
+.title {
+    text-transform: uppercase;
+    text-align: center;
+    border-bottom: 1px solid lightgray;
+    letter-spacing: 2px;
+}
+
+h2 {
+    color: #006EB6;
+    font-size: smaller;
+}
+
+main {
+    padding: 50px;
+}
+
+p:nth-child(2){
+    font-style: italic;
+    padding-top: 15px;
+}
+
+li {
+    padding-top: 15px;
+}
+
+.logo {
+    width: 150px;
+    display: block;
+    margin: 0 auto;
+}
