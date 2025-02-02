@@ -24,7 +24,7 @@ window.addEventListener('resize', handleResize);
 function viewerTemplate(src, alt) {
     return `<div class="viewer">
         <button class="close-viewer">X</button>
-        <img class="viewer-img" src="/assignments/coolpics/norris-full.jpeg" alt="full picture">
+        <img class="viewer-img" src="${src}" alt="${alt}">
         </div>`;
 }
 
@@ -40,10 +40,10 @@ function viewHandler(event) {
     let imgLink = clickedElement.getAttribute('src');
     let imgParts = imgLink.split('-');
 	// construct the new image file name by adding "-full.jpeg" to the first part of the array from the previous step
-    imgParts[0] + '-full.jpeg';
+    let fullImg = imgParts[0] + '-full.jpeg';
 	// insert the viewerTemplate into the top of the body element
 	// (element.insertAdjacentHTML("afterbegin", htmltoinsert))
-    document.body.insertAdjacentHTML('afterbegin', viewerTemplate);
+    document.body.insertAdjacentHTML('afterbegin', viewerTemplate(fullImg, clickedElement.alt));
 	// add a listener to the close button (X) that calls a function called closeViewer when clicked
     const closeButton = document.querySelector('.close-viewer');
     closeButton.addEventListener('click', closeViewer);
