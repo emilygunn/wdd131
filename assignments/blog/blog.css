@@ -1,0 +1,67 @@
+:root {
+    --primary-color: #f5f3e9;
+    --secondary-color: #3D405B;
+    --accent1-color: #81B29A;
+    --accent2-color: #ce2e01;
+
+    --body-font: "Trebuchet MS", "Gill Sans", sans-serif;
+    --heading-font: "Courier", "Lucida Console", monospace;
+}
+
+* {
+    margin: 0 auto;
+}
+
+body {
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+}
+
+.skiptocontent {
+    position: absolute;
+    top: -40px;
+    text-align: left;
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+}
+
+.skiptocontent a:focus {
+    top: 20px;
+}
+
+h1 {
+    text-align: center;
+    padding: 2rem;
+}
+
+nav {
+    border-top: 1px solid var(--accent1-color);
+    border-bottom: 1px solid var(--accent1-color);
+}
+
+nav ul {
+    display: grid;
+    grid-template-columns: repeat(3, 75px);
+    justify-content: end;
+    justify-items: end;
+    list-style: none;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 15px;
+}
+
+a {
+    text-decoration: none;
+    color: var(--accent2-color);
+    font-size: 1.2rem;
+}
+
+main {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+}
+
+.book {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
