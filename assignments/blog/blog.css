@@ -8,20 +8,23 @@
     --heading-font: "Courier", "Lucida Console", monospace;
 }
 
-* {
+/* * {
     margin: 0 auto;
-}
+} */
 
 body {
     background-color: var(--primary-color);
     color: var(--secondary-color);
+    margin: 0 auto;
 }
 
-.skiptocontent {
+.skiptocontent a {
     position: absolute;
     top: -40px;
     text-align: left;
     background-color: var(--secondary-color);
+    color: var(--primary-color);
+    margin-left: 20px;
 }
 
 .skiptocontent a:focus {
@@ -59,22 +62,30 @@ a {
 main {
     display: grid;
     grid-template-columns: 2fr 1fr;
+    padding: 1rem 2rem;
 }
 
 .book {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: .5fr 1fr;
+    padding: 20px;
 }
 
 .book-info {
-    padding: 10px;
+    padding: 20px;
     border-right: 1px solid var(--accent1-color);
     text-align: right;
     line-height: 1.5rem;
+    justify-self: end;
+    margin-right: 20px;
 }
 
 .date {
     font-size: 1.1rem;
+}
+
+.book-desc h2 {
+    color: var(--accent2-color);
 }
 
 .book-desc img{
@@ -85,5 +96,7 @@ main {
 }
 
 .filters {
+    margin: 0 auto;
     border: 1px solid var(--accent1-color);
+    grid-area: 1,2,2,3;
 }
