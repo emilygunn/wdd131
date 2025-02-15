@@ -40,7 +40,7 @@ const fruitsFiltered = fruits.filter(function(fruit) {
     return fruit.length < 6;
 })
 
-console.log(fruitsFiltered);
+console.log('Filtered fruits array: ' + fruitsFiltered);
 
 //activity 5 - indexOf
 
