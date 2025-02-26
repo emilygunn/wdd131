@@ -90,6 +90,7 @@ form {
     width: 60px;
     align-self: end;
     margin-bottom: 20px;
+    /* z-index: 1; */
 }
 
 button {
