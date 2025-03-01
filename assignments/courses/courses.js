@@ -6,22 +6,33 @@ const aCourse = {
         { sectionNum: 1, roomNum: 'STC 353', enrolled: 26, days: 'TTh', instructor: 'Bro T'},
         { sectionNum: 2, roomNum: 'STC 347', enrolled: 28, days: 'TTh', instructor: 'Sis A'}
     ],
-    enrollStudent: function (sectionNum) {
-        const sectionIndex = this.sections.findIndex((section) => section.sectionNum === sectionNum);
-        
-        if (sectionIndex > 0) {
-            this.sections[sectionIndex].enrolled++;
-        };
-        renderSections(this.sections);
+    changeEnrollment: function (sectionNum, add = true) {
+        const sectionIndex = this.sections.findIndex((section) => section.sectionNum == sectionNum);
+        if (sectionIndex >= 0) {
+            if (add) {
+                this.sections[sectionIndex].enrolled++;
+            } else {
+                this.sections[sectionIndex].enrolled--;
+            }
+            renderSections(this.sections);
+        }
     },
-    dropStudent: function (sectionNum) {
-        const sectionIndex = this.sections.findIndex((section) => section.sectionNum === sectionNum);
+    // enrollStudent: function (sectionNum) {
+    //     const sectionIndex = this.sections.findIndex((section) => section.sectionNum === sectionNum);
         
-        if (sectionIndex > 0) {
-            this.sections[sectionIndex].enrolled--;
-        };
-        renderSections(this.sections);
-    },
+    //     if (sectionIndex > 0) {
+    //         this.sections[sectionIndex].enrolled++;
+    //     };
+    //     renderSections(this.sections);
+    // },
+    // dropStudent: function (sectionNum) {
+    //     const sectionIndex = this.sections.findIndex((section) => section.sectionNum === sectionNum);
+        
+    //     if (sectionIndex > 0) {
+    //         this.sections[sectionIndex].enrolled--;
+    //     };
+    //     renderSections(this.sections);
+    // },
 };
 
 //activity 1.3
@@ -47,11 +58,20 @@ function renderSections(sections) {
     document.querySelector('#sections').innerHTML = html.join('')
 }
 
-//render course dtails
+//enroll student button
+document.querySelector('#enrollStudent').addEventListener('click', (e) => {
+    const sectionNum = document.querySelector('#sectionNumber').value;
+    aCourse.changeEnrollment(sectionNum);
+})
+
+//drop student button
+document.querySelector('#dropStudent').addEventListener('click', (e) => {
+    const sectionNum = document.querySelector('#sectionNumber').value;
+    aCourse.changeEnrollment(sectionNum);
+})
+
+//render course details
 renderCourseDetails(aCourse);
 
 //render section details
 renderSections(aCourse.sections);
-
-//activity 2.
-
