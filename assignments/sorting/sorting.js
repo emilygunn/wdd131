@@ -107,10 +107,20 @@ function searchList2(list, query) {
             || item.tags.find((tag) => tag.toLowerCase().includes(query.toLowerCase()))
         );
         }
-    const filtered = list.filter(searchCallback);
-    const sorted = filtered.sort((a, b) => a.distance > b.distance);
-    return sorted
+    // const filtered = list.filter(searchCallback);
+    // const sorted = filtered.sort((a, b) => a.distance > b.distance);
+    // return sorted
+    return list.filter(searchCallback);
 }
+
+hikes.sort((a,b) => {
+    // const aDistance = a.distance.replace(' miles', '');
+    const aDistance = parseFloat(a.distance);
+    const bDistance = parseFloat(b.distance);
+    return aDistance - bDistance;
+});
+
+console.log(hikes);
 
 filteredList = searchList2(hikes, "al");
 console.log(filteredList);
