@@ -1,0 +1,240 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&family=Glass+Antiqua&display=swap');
+
+:root {
+    /* change the values below to your colors from your palette */
+    --primary-color: #F7F4F3;
+    --secondary-color: #564D4A;
+    --accent1-color: #c44c6e;
+    --accent2-color: #9d3f59;
+    --accent3-color: #5B2333;
+    --green1-color: #445147;
+    --green2-color: #95c19f;
+    --red1-color: #F24333;
+    --red2-color: #BA1B1D;
+    --lil-color1: rgb(250, 242, 215);
+    --lil-color2: rgb(252, 229, 145);
+    --lil-color3: rgb(251, 214, 68);
+    --cer-color1: ;
+
+    /* change the values below to your chosen font(s) */
+    --heading-font: "Glass Antiqua", cursive;
+    --paragraph-font: "Cormorant Garamond", serif;
+    /* these colors below should be chosen from among your palette colors above */
+    --headline-color-on-white: var(--secondary-color); /* headlines on a white background */
+    --headline-color-on-color: var(--primary-color); /* headlines on a colored background */
+    --paragraph-color-on-white: var(--primary-color); /* paragraph text on a white background */
+    --paragraph-color-on-color: var(--primary-color); /* paragraph text on a colored background */
+    --paragraph-background-color: var(--accent3-color);
+    --nav-link-color: var(--primary-color);
+    --nav-background-color: var(--secondary-color);
+    --nav-hover-link-color: var(--primary-color);
+    --nav-hover-background-color: var(--accent2-color);
+}
+
+/* HOME */
+
+body {
+    margin: 0 auto;
+    max-width: 1600px;
+    font-size: 18px;
+}
+
+h1, h2, h3 {
+    font-family: var(--heading-font);
+}
+p, ul, a, button {
+    font-family: var(--paragraph-font);
+}
+
+header {
+    background-color: var(--accent3-color);
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    justify-items: center;
+    align-items: center;
+    transition: 0.4s;
+}
+#logo {
+    width: 100px;
+}
+#logo-a {
+    background-color: unset;
+    grid-area: 1/3/2/4;
+}
+a {
+    background-color: var(--secondary-color);
+    padding: 20px;
+    color: var(--nav-link-color);
+    text-decoration: none;
+}
+a:hover {
+    background-color: var(--accent2-color);
+}
+#odyess-a {
+    grid-area: 1/2/2/3;
+}
+#time-a {
+    grid-area: 1/4/2/5;
+}
+
+main {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+}
+
+#tff-hero {
+    width: 100%;
+    grid-area: 1/1/2/6;
+}
+h1 {
+    grid-area: 1/1/2/6;
+    align-self: center;
+    justify-self: center;
+    color: var(--primary-color);
+    font-size: 7vw;
+    letter-spacing: 10px;
+}
+
+.main-p {
+    grid-area: 2/2/3/5;
+    text-align: center;
+    justify-self: center;
+    align-self: center;
+    padding-top: 1rem;
+}
+.main-h2 {
+    grid-area: 3/2/4/5;
+    text-align: center;
+    align-self: center;
+}
+.odyess-pc-sr {
+    grid-area: 4/2/5/5;
+    text-align: center;
+    align-self: center;
+    margin-right: 35px;
+}
+.camp-a {
+    background-color: unset;
+    color: var(--secondary-color);
+}
+.camp-a:hover {
+    background-color: unset;
+    color: var(--accent2-color);
+}
+.odyess-play-h3 {
+    grid-area: 5/3/6/4;
+    text-align: center;
+}
+.players {
+    grid-area: 7/2/8/5;
+}
+.players2 {
+    grid-area: 7/2/8/5;
+    justify-self: right;
+}
+.odyess-char-h3 {
+    grid-area: 8/3/9/4;
+    text-align: center;
+}
+
+.characters {
+    grid-column: 2/5;
+    grid-row: 9;
+}
+.accordion {
+    background-color: var(--accent3-color);
+    color: var(--headline-color-on-color);
+    cursor: pointer;
+    padding: 30px;
+    width: 100%;
+    text-align: left;
+    font-size: 1rem;
+    border: none;
+    outline: none;
+    transition: 0.4s;
+}
+.panel {
+    padding: 0 30px;
+    display: none;
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height 0.4s ease-out;
+}
+.accordion:after {
+    content: '▼'; /* down arrow */
+    font-size: 13px;
+    color: var(--secondary-color);
+    float: right;
+    margin-left: 5px;
+}
+.active:after {
+    content: '▲'; /* up arrow */
+}
+.char-img-contain {
+    text-align: center;
+}
+.char-img {
+    width: 25%;
+}
+/*Lilthet*/
+.lil > .active, .lil > .accordion:hover {
+    background-color: var(--lil-color1);
+    color: var(--secondary-color);
+}
+.lil > .panel {
+    background-color: var(--lil-color1);
+}
+/*Cerein*/
+.cer > .active, .cer > .accordion:hover {
+    background-color: var(--lil-color1);
+    color: var(--secondary-color);
+}
+.cer > .panel {
+    background-color: var(--lil-color1);
+}
+
+footer {
+    background-color: var(--accent3-color);
+    padding-top: 1rem;
+    margin-top: 1rem;
+    transition: 0.4s;
+}
+#logo {
+    display: block;
+    margin: 0 auto;
+}
+footer p {
+    text-align: center;
+    color: var(--primary-color);
+    margin-bottom: 0;
+}
+
+/* ODYSSEY SESSION RECORDS */
+
+.search-bar {
+    grid-area: 4/2/5/5;
+    display: flex;
+    margin: .6rem;
+    img {
+        height: 16px;
+    }
+    input {
+        width: 100%;
+    }
+}
+.hr1 {
+    grid-area: 5/1/6/6;
+    width: 75%;
+    background-color: var(--secondary-color);
+}
+
+.sessions {
+    grid-column: 2/5;
+}
+.s1 > .active, .s1 > .accordion:hover {
+    background-color: var(--accent2-color);
+}
+.s1 > .panel {
+    background-color: var(--accent2-color);
+    color: var(--primary-color);
+}
