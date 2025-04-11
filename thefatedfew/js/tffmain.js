@@ -1,8 +1,7 @@
-import sessions from "./oocSessions.mjs";
 import characters from "./characterInfo.mjs";
 
 // Character Accordions
-document.addEventListener("DOMContentLoaded", () => {
+function initAccortions() {
     const acc = document.getElementsByClassName('accordion');
 
     for (let i = 0; i < acc.length; i++) {
@@ -25,7 +24,7 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         })
     }
-});
+};
 
 // Render Characters
 
@@ -55,7 +54,7 @@ function charTemplate(characters) {
 
                     <b>Fun Fact:</b> ${characters.funFact}<br><br>
 
-                    <b>One-Liner: (Optional)</b> ${characters.oneLiner}
+                    <b>One-Liner (Optional): </b> ${characters.oneLiner}
                 </p>
             </div>
         </article>
@@ -66,22 +65,24 @@ characters.sort((a,b) => {
     return a.name.localeCompare(b.name);
 })
     //Rendering
-    function renderCharacters(charList) {
-        // get element to output AFTER
-        const outputTo = document.querySelector('.odyess-char-h3');
-        // map the list
-        const html = charList.map(charTemplate).join('');
-        // Set the HTML after the element
-        outputTo.insertAdjacentHTML('afterend', html);
-    }
-    function initCharacters() {
-        renderCharacters(characters);
-    }
-    initCharacters();
+function renderCharacters(charList) {
+    // get element to output AFTER
+    const outputTo = document.querySelector('main');
+    // map the list
+    const html = charList.map(charTemplate).join('');
+    // Set the HTML after the element
+    outputTo.insertAdjacentHTML('beforeend', html);
+}
+function initCharacters() {
+    renderCharacters(characters);
+    initAccortions();
+}
+initCharacters();
 
 // Color Changes on Hover
 const header = document.querySelector('header');
 const footer = document.querySelector('footer');
+const footerP = document.querySelector('footer p');
 
     //Lilthet Colors
 const lilColors = document.querySelector('.lil');
@@ -89,70 +90,23 @@ const lilColors = document.querySelector('.lil');
 lilColors.addEventListener('mouseover', () => {
     header.style.backgroundColor = 'var(--lil-color1)';
     footer.style.backgroundColor = 'var(--lil-color1)';
+    footerP.style.color = 'var(--secondary-color)';
 })
 lilColors.addEventListener('mouseout', () => {
     header.style.backgroundColor = '';
     footer.style.backgroundColor = '';
+    footerP.style.color = '';
 })
+    //Cerein Colors
+    const cerColors = document.querySelector('.cer');
 
-// Session Record Accordions and Searching
-
-    //Template
-function sessionTemplate(sessions) { 
-    return `
-        <article class="sessions s${sessions.season}">
-        <button class="accordion"><b>Season ${sessions.season} - ${sessions.date}</b> - ${sessions.title}</button>
-        <div class="panel">
-            <p>
-                <b>Session Recap:</b><br><br>
-                ${sessions.recap}
-                <em>-	From the Journal of ${sessions.author}</em>
-            </p>
-        </div>
-        </article>`;}
-
-    //Rendering
-function getRandomIndex(maxNum) {
-    return Math.floor(Math.random()*maxNum);
-}
-function getRandomListEntry(list) {
-    const randomNum = getRandomIndex(list.length);
-    return list[randomNum];
-}
-function renderSessions(sessionList) {
-	// get element to output AFTER
-    const outputTo = document.querySelector('.hr1');
-	// Set the HTML strings as the innerHTML of our output element.
-    outputTo.insertAdjacentHTML('afterend', sessionTemplate(sessionList));
-}
-function initSessions() {
-    // get a random session
-    const session = getRandomListEntry(sessions)
-    // render
-    renderSessions([session]);
-}
-initSessions();
-
-    //Searching
-function searchHandler(event) {
-    event.preventDefault();
-    const input = document.querySelector('.search').value.toLowerCase();
-    filterSessions(input);
-}
-
-function filterSessions(query) {
-    function searchCallback(item) {
-        return item.season.toLowerCase().includes(query.toLowerCase())
-        || item.date.toLowerCase().includes(query.toLowerCase())
-        || item.title.toLowerCase().includes(query.toLowerCase())
-        || item.author.toLowerCase().includes(query.toLowerCase())
-        || item.recap.toLowerCase().includes(query.toLowerCase())
-    }
-    return recipes.filter(searchCallback);
-}
-
-sessions.sort((a,b) => {
-    return a.date - b.date;
-})
-
-document.querySelector('.search').addEventListener('click', searchHandler);
+    cerColors.addEventListener('mouseover', () => {
+        header.style.backgroundColor = 'var(--cer-color1)';
+        footer.style.backgroundColor = 'var(--cer-color1)';
+        footerP.style.color = 'var(--secondary-color)';
+    })
+    cerColors.addEventListener('mouseout', () => {
+        header.style.backgroundColor = '';
+        footer.style.backgroundColor = '';
+        footerP.style.color = '';
+    })
